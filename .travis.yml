@@ -3,15 +3,16 @@ os: osx
 jdk:
   - openjdk11
 
-branches:
-  only:
-    - master
+# branches:
+#   only:
+#     - master
 
 #TRAVIS CI SERVER HOME
-cache:
-  directions:
-    - '$HOME/.m2/repository'
-    - '$HOME/.mvn'
+# cache:
+#   directions:
+#     - '$HOME/.m2/repository'
+#     - '$HOME/.mvn'
+#     - '$HOME/.m2/repository'
 
 before_install:
   - chmod +x mvnw
@@ -20,7 +21,7 @@ script: "./mvnw clean install"
 
 
 before_deploy :
-  - zip -r freelec-springboot2-webservice book
+  - zip -r book
   - mkdir -p deploy
   - mv freelec-springboot2-webservice.zip deploy/freelec-springboot2-webservice.zip
 
