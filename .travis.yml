@@ -20,7 +20,7 @@ before_install:
 script: "./mvnw clean install"
 
 before_deploy:
-  - zip -r book *
+  - zip -r  freelec-springboot2-webservice book
   - mkdir -p deploy
   - mv freelec-springboot2-webservice.zip deploy/freelec-springboot2-webservice.zip
 
