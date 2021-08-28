@@ -17,8 +17,28 @@ before_install:
 
 script: "./mvnw clean install"
 
+
+before_deploy :
+  - zip -r freelec-springboot2-webservice *
+  - mkdir -p deploy
+  - mv freelec-springboot2-webservice.zip deploy/freelec-springboot2-webservice.zip
+
+
+deploy :
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+
+  bucket : jpa-builder
+  region : ap-northeast-2
+  skip_cleanup: true
+  acl : private
+  local_dir : deploy
+  wait-until-deploy : true
+  
 #NOTIFICATION
 notifications:
   email:
     recipients:
       - newkayak12@gmail.com
+
