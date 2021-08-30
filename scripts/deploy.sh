@@ -1,11 +1,11 @@
 #!/bin/bash
-REPOSITROY=/home/ec2-user/app/step2
+REPOSITORY=/home/ec2-user/app/step2
 PROJECT_NAME=Junit-JPA-AWS-Learn/book
-cp $REPOSITROY/zip/*.jar $REPOSITROY/
+cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo ">stop running application"
 
-CURRENT_PID = $(pgrep -fl book |grep java |awk '{print $1}')
+CURRENT_PID = $(pgrep -fl book |pgrep java |awk '{print $1}')
 
 echo ">now Running pid : $CURRENT_PID"
 
