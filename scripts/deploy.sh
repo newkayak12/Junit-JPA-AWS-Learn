@@ -5,10 +5,11 @@ cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo ">stop running application"
 
-CURRENT_PID = $(pgrep -fl book |pgrep java |awk '{print $1}')
+CURRENT_PID = $(pgrep  -fl book *  |pgrep java |awk '{print $1}')
+TEST_PID = $(pgrep -f book.*.jar  )
 
 echo ">now Running pid : $CURRENT_PID"
-
+echo ">text : $TEST_PID"
 if [ -z "$CURRENT_PID" ]; then
 	echo ">_"
 else 
