@@ -5,7 +5,7 @@ cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo ">stop running application"
 
-CURRENT_PID = $(pgrep book  |pgrep java |awk '{print $1}')
+CURRENT_PID = $(pgrep java |awk '{print $1}')
 # TEST_PID = $(pgrep -f book.*.jar  )
 
 echo ">now Running pid : $CURRENT_PID"
